@@ -13,6 +13,7 @@ import {
   trainAutoml,
   type AnalysisResult,
   type TrainingResult,
+  API_BASE,
 } from "@/lib/automl-api";
 import { Stepper, type Step } from "@/components/automl/Stepper";
 import { UploadZone } from "@/components/automl/UploadZone";
@@ -59,7 +60,7 @@ function Index() {
     } catch (e) {
       setError(
         e instanceof Error
-          ? `${e.message}. Is the API running at localhost:8000?`
+          ? `${e.message}. Is the API running at ${API_BASE}?`
           : "Failed to analyze file.",
       );
     } finally {
@@ -89,7 +90,7 @@ function Index() {
     } catch (e) {
       setError(
         e instanceof Error
-          ? `${e.message}. Is the API running at localhost:8000?`
+          ? `${e.message}. Is the API running at ${API_BASE}?`
           : "Training failed.",
       );
       setStep("config");
